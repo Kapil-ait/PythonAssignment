@@ -1,0 +1,7 @@
+print("===Resume===")
+a=input("enter your name:")
+print(a)
+b=input("enter your email:")
+print(b)
+c=input("enter your skills :").split()
+print(c)
