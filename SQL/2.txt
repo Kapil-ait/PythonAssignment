@@ -1,0 +1,125 @@
+mysql> create table students(student_id int primary key, name varchar(50), class int, subject varchar(50), marks int, exam_date date);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into students values
+    -> (1,'John',10,'Math',85,'2023-02-10'),
+    -> (2,'Alice',10,'Science',78,'2023-03-15'),
+    -> (3,'Bob',9,'Math',92,'2023-04-20'),
+    -> (4,'David',9,'Science',80,'2023-05-25'),
+    -> (5,'Eve',10,'Math',88,'2023-06-30'),
+    -> (6,'Frank',9,'Science',75,'2023-07-10'),
+    -> (7,'Grace',10,'Math',90,'2023-08-20'),
+    -> (8,'Hank',9,'Math',85,'2023-09-15'),
+    -> (9,'Ivy',10,'Science',82,'2023-10-10'),
+    -> (10,'Jack',9,'Science',79,'2023-11-05');
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from students;
++------------+-------+-------+---------+-------+------------+
+| student_id | name  | class | subject | marks | exam_date  |
++------------+-------+-------+---------+-------+------------+
+|          1 | John  |    10 | Math    |    85 | 2023-02-10 |
+|          2 | Alice |    10 | Science |    78 | 2023-03-15 |
+|          3 | Bob   |     9 | Math    |    92 | 2023-04-20 |
+|          4 | David |     9 | Science |    80 | 2023-05-25 |
+|          5 | Eve   |    10 | Math    |    88 | 2023-06-30 |
+|          6 | Frank |     9 | Science |    75 | 2023-07-10 |
+|          7 | Grace |    10 | Math    |    90 | 2023-08-20 |
+|          8 | Hank  |     9 | Math    |    85 | 2023-09-15 |
+|          9 | Ivy   |    10 | Science |    82 | 2023-10-10 |
+|         10 | Jack  |     9 | Science |    79 | 2023-11-05 |
++------------+-------+-------+---------+-------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select class, count(*) from students group by class;
++-------+----------+
+| class | count(*) |
++-------+----------+
+|    10 |        5 |
+|     9 |        5 |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select max(marks) from students where subject='Math';
++------------+
+| max(marks) |
++------------+
+|         92 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> select subject, avg(marks) from students group by subject;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
+| Science |    78.8000 |
++---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select count(*) from students where marks>80;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select monthname(exam_date), count(*) from students group by monthname(exam_date), month(exam_date);
++----------------------+----------+
+| monthname(exam_date) | count(*) |
++----------------------+----------+
+| February             |        1 |
+| March                |        1 |
+| April                |        1 |
+| May                  |        1 |
+| June                 |        1 |
+| July                 |        1 |
+| August               |        1 |
+| September            |        1 |
+| October              |        1 |
+| November             |        1 |
++----------------------+----------+
+10 rows in set (0.01 sec)
+
+mysql> select subject, avg(marks) from students group by subject order by avg(marks) desc limit 1;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
++---------+------------+
+1 row in set (0.00 sec)
+
+mysql> select name, marks from students where subject='Science' order by marks asc limit 1;
++-------+-------+
+| name  | marks |
++-------+-------+
+| Frank |    75 |
++-------+-------+
+1 row in set (0.01 sec)
+
+mysql> select class, count(*) from students where marks>85 group by class;
++-------+----------+
+| class | count(*) |
++-------+----------+
+|     9 |        1 |
+|    10 |        2 |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select subject, avg(marks) from students group by subject having avg(marks)>80;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
++---------+------------+
+1 row in set (0.00 sec)
+
+mysql> select name, marks from students order by marks desc limit 1;
++------+-------+
+| name | marks |
++------+-------+
+| Bob  |    92 |
++------+-------+
+1 row in set (0.00 sec)

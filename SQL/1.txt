@@ -1,0 +1,132 @@
+mysql> create database employee_db;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> use employee_db;
+Database changed
+mysql> create table employees(id int primary key, name varchar(50), department varchar(50), job_role varchar(50), salary decimal(10,2), hire_date date);
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> insert into employees values
+    -> (1,'Alice','HR','Manager',6000.00,'2022-01-15'),
+    -> (2,'Bob','HR','Recruiter',4000.00,'2023-03-20'),
+    -> (3,'Charlie','IT','Developer',5000.00,'2022-07-25'),
+    -> (4,'David','IT','Developer',5500.00,'2021-12-05'),
+    -> (5,'Eve','IT','Tester',4500.00,'2023-06-10'),
+    -> (6,'Frank','IT','Tester',4800.00,'2023-09-12'),
+    -> (7,'Grace','Finance','Analyst',5200.00,'2021-11-18'),
+    -> (8,'Hank','Finance','Analyst',5300.00,'2022-04-30'),
+    -> (9,'Ivy','Finance','Manager',7000.00,'2023-08-14'),
+    -> (10,'Jack','HR','Recruiter',4200.00,'2022-10-05');
+Query OK, 10 rows affected (0.03 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_db;
+ERROR 1146 (42S02): Table 'employee_db.employee_db' doesn't exist
+mysql> select * from employees_db;
+ERROR 1146 (42S02): Table 'employee_db.employees_db' doesn't exist
+mysql> select * from employees;
++----+---------+------------+-----------+---------+------------+
+| id | name    | department | job_role  | salary  | hire_date  |
++----+---------+------------+-----------+---------+------------+
+|  1 | Alice   | HR         | Manager   | 6000.00 | 2022-01-15 |
+|  2 | Bob     | HR         | Recruiter | 4000.00 | 2023-03-20 |
+|  3 | Charlie | IT         | Developer | 5000.00 | 2022-07-25 |
+|  4 | David   | IT         | Developer | 5500.00 | 2021-12-05 |
+|  5 | Eve     | IT         | Tester    | 4500.00 | 2023-06-10 |
+|  6 | Frank   | IT         | Tester    | 4800.00 | 2023-09-12 |
+|  7 | Grace   | Finance    | Analyst   | 5200.00 | 2021-11-18 |
+|  8 | Hank    | Finance    | Analyst   | 5300.00 | 2022-04-30 |
+|  9 | Ivy     | Finance    | Manager   | 7000.00 | 2023-08-14 |
+| 10 | Jack    | HR         | Recruiter | 4200.00 | 2022-10-05 |
++----+---------+------------+-----------+---------+------------+
+10 rows in set (0.01 sec)
+
+mysql> select department, count(*) from employees group by department;
++------------+----------+
+| department | count(*) |
++------------+----------+
+| HR         |        3 |
+| IT         |        4 |
+| Finance    |        3 |
++------------+----------+
+3 rows in set (0.02 sec)
+
+mysql> select job_role, avg(salary) from employees group by job_role;
++-----------+-------------+
+| job_role  | avg(salary) |
++-----------+-------------+
+| Manager   | 6500.000000 |
+| Recruiter | 4100.000000 |
+| Developer | 5250.000000 |
+| Tester    | 4650.000000 |
+| Analyst   | 5250.000000 |
++-----------+-------------+
+5 rows in set (0.01 sec)
+
+mysql> select max(salary) from employees where department='IT';
++-------------+
+| max(salary) |
++-------------+
+|     5500.00 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select min(salary) from employees;
++-------------+
+| min(salary) |
++-------------+
+|     4000.00 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) from employees where hire_date > '2023-01-01';
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> select department, sum(salary) from employees group by department;
++------------+-------------+
+| department | sum(salary) |
++------------+-------------+
+| HR         |    14200.00 |
+| IT         |    19800.00 |
+| Finance    |    17500.00 |
++------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select job_role, sum(salary) from employees group by job_role order by sum(salary) desc limit 1;
++----------+-------------+
+| job_role | sum(salary) |
++----------+-------------+
+| Manager  |    13000.00 |
++----------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from employees where hire_date > '2022-12-31';
++-------------+
+| avg(salary) |
++-------------+
+| 5075.000000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select department, sum(salary) from employees group by department having sum(salary)>10000;
++------------+-------------+
+| department | sum(salary) |
++------------+-------------+
+| HR         |    14200.00 |
+| IT         |    19800.00 |
+| Finance    |    17500.00 |
++------------+-------------+
+3 rows in set (0.01 sec)
+
+mysql> select department, count(*) from employees group by department order by count(*) desc limit 1;
++------------+----------+
+| department | count(*) |
++------------+----------+
+| IT         |        4 |
++------------+----------+
+1 row in set (0.00 sec)

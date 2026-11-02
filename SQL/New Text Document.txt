@@ -1,0 +1,138 @@
+mysql> CREATE TABLE sales (sale_id INT PRIMARY KEY AUTO_INCREMENT, customer_name VARCHAR(50), city VARCHAR(30), category VARCHAR(30), product VARCHAR(50), quantity INT, price DECIMAL(10,2), discount DECIMAL(10,2), sale_date DATE, payment_method ENUM('UPI','Card','Cash','Net Banking'), status ENUM('Completed','Pending','Cancelled'), customer_type ENUM('New','Regular','Premium'));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> INSERT INTO sales (customer_name, city, category, product, quantity, price, discount, sale_date, payment_method, status, customer_type) VALUES ('Rahul','Indore','Electronics','Laptop',2,60000,5000,'2026-01-05','Card','Completed','Premium'), ('Priya','Bhopal','Electronics','Mobile',3,25000,3000,'2026-01-07','UPI','Completed','Regular'), ('Amit','Indore','Clothing','Jeans',5,2000,500,'2026-01-10','Cash','Completed','New'), ('Sneha','Mumbai','Beauty','Cream',8,800,400,'2026-01-12','UPI','Completed','Premium'), ('Rohit','Pune','Electronics','Laptop',1,55000,4000,'2026-01-15','Card','Completed','Regular'), ('Neha','Delhi','Clothing','Kurti',6,1800,600,'2026-01-17','UPI','Completed','Premium'), ('Karan','Indore','Sports','Bat',4,3500,700,'2026-01-20','Cash','Completed','Regular'), ('Pooja','Bhopal','Beauty','Lipstick',10,600,300,'2026-01-22','UPI','Completed','New'), ('Vikas','Delhi','Books','SQL Book',7,900,200,'2026-01-25','Net Banking','Completed','Regular'), ('Anjali','Mumbai','Electronics','Watch',3,7000,800,'2026-01-27','Card','Completed','Premium'), ('Saurabh','Pune','Grocery','Rice',12,900,500,'2026-02-01','UPI','Completed','Regular'), ('Riya','Delhi','Electronics','AC',2,45000,5000,'2026-02-03','Card','Completed','Premium'), ('Manish','Indore','Clothing','Shirt',6,1500,300,'2026-02-05','UPI','Completed','New'), ('Komal','Bhopal','Furniture','Chair',3,8000,1000,'2026-02-07','Cash','Completed','Premium'), ('Deepak','Mumbai','Electronics','Speaker',5,3000,500,'2026-02-12','Card','Cancelled','Regular');
+Query OK, 15 rows affected (0.04 sec)
+Records: 15  Duplicates: 0  Warnings: 0
+
+mysql> select * from sales;
++---------+---------------+--------+-------------+----------+----------+----------+----------+------------+----------------+-----------+---------------+
+| sale_id | customer_name | city   | category    | product  | quantity | price    | discount | sale_date  | payment_method | status    | customer_type |
++---------+---------------+--------+-------------+----------+----------+----------+----------+------------+----------------+-----------+---------------+
+|       1 | Rahul         | Indore | Electronics | Laptop   |        2 | 60000.00 |  5000.00 | 2026-01-05 | Card           | Completed | Premium       |
+|       2 | Priya         | Bhopal | Electronics | Mobile   |        3 | 25000.00 |  3000.00 | 2026-01-07 | UPI            | Completed | Regular       |
+|       3 | Amit          | Indore | Clothing    | Jeans    |        5 |  2000.00 |   500.00 | 2026-01-10 | Cash           | Completed | New           |
+|       4 | Sneha         | Mumbai | Beauty      | Cream    |        8 |   800.00 |   400.00 | 2026-01-12 | UPI            | Completed | Premium       |
+|       5 | Rohit         | Pune   | Electronics | Laptop   |        1 | 55000.00 |  4000.00 | 2026-01-15 | Card           | Completed | Regular       |
+|       6 | Neha          | Delhi  | Clothing    | Kurti    |        6 |  1800.00 |   600.00 | 2026-01-17 | UPI            | Completed | Premium       |
+|       7 | Karan         | Indore | Sports      | Bat      |        4 |  3500.00 |   700.00 | 2026-01-20 | Cash           | Completed | Regular       |
+|       8 | Pooja         | Bhopal | Beauty      | Lipstick |       10 |   600.00 |   300.00 | 2026-01-22 | UPI            | Completed | New           |
+|       9 | Vikas         | Delhi  | Books       | SQL Book |        7 |   900.00 |   200.00 | 2026-01-25 | Net Banking    | Completed | Regular       |
+|      10 | Anjali        | Mumbai | Electronics | Watch    |        3 |  7000.00 |   800.00 | 2026-01-27 | Card           | Completed | Premium       |
+|      11 | Saurabh       | Pune   | Grocery     | Rice     |       12 |   900.00 |   500.00 | 2026-02-01 | UPI            | Completed | Regular       |
+|      12 | Riya          | Delhi  | Electronics | AC       |        2 | 45000.00 |  5000.00 | 2026-02-03 | Card           | Completed | Premium       |
+|      13 | Manish        | Indore | Clothing    | Shirt    |        6 |  1500.00 |   300.00 | 2026-02-05 | UPI            | Completed | New           |
+|      14 | Komal         | Bhopal | Furniture   | Chair    |        3 |  8000.00 |  1000.00 | 2026-02-07 | Cash           | Completed | Premium       |
+|      15 | Deepak        | Mumbai | Electronics | Speaker  |        5 |  3000.00 |   500.00 | 2026-02-12 | Card           | Cancelled | Regular       |
++---------+---------------+--------+-------------+----------+----------+----------+----------+------------+----------------+-----------+---------------+
+15 rows in set (0.00 sec)
+       ^C
+mysql> select
+       select^C
+mysql> select city,count(sales_id) as total from sales where status="completed" and quantity>2 group by city order by total desc;
+ERROR 1054 (42S22): Unknown column 'sales_id' in 'field list'
+mysql> select city,count(sale_id) as total from sales where status="completed" and quantity>2 group by city order by total desc;
++--------+-------+
+| city   | total |
++--------+-------+
+| Bhopal |     3 |
+| Indore |     3 |
+| Mumbai |     2 |
+| Delhi  |     2 |
+| Pune   |     1 |
++--------+-------+
+5 rows in set (0.02 sec)
+
+mysql> SELECT category, SUM(quantity) AS total_quantity FROM sales WHERE discount > 300 GROUP BY category ORDER BY total_quantity DESC;
++-------------+----------------+
+| category    | total_quantity |
++-------------+----------------+
+| Electronics |             16 |
+| Grocery     |             12 |
+| Clothing    |             11 |
+| Beauty      |              8 |
+| Sports      |              4 |
+| Furniture   |              3 |
++-------------+----------------+
+6 rows in set (0.19 sec)
+
+mysql> SELECT city, SUM(quantity * price) AS total_sales FROM sales WHERE status = 'Completed' GROUP BY city ORDER BY total_sales DESC;
++--------+-------------+
+| city   | total_sales |
++--------+-------------+
+| Indore |   153000.00 |
+| Delhi  |   107100.00 |
+| Bhopal |   105000.00 |
+| Pune   |    65800.00 |
+| Mumbai |    27400.00 |
++--------+-------------+
+5 rows in set (0.03 sec)
+
+mysql> SELECT customer_type, COUNT(*) AS total_sales FROM sales WHERE (quantity * price) > 5000 GROUP BY customer_type ORDER BY total_sales DESC;
++---------------+-------------+
+| customer_type | total_sales |
++---------------+-------------+
+| Premium       |           6 |
+| Regular       |           6 |
+| New           |           3 |
++---------------+-------------+
+3 rows in set (0.02 sec)
+mysql> SELECT city, SUM(discount) AS total_discount FROM sales WHERE payment_method = 'UPI' GROUP BY city ORDER BY total_discount DESC;
++--------+----------------+
+| city   | total_discount |
++--------+----------------+
+| Bhopal |        3300.00 |
+| Delhi  |         600.00 |
+| Pune   |         500.00 |
+| Mumbai |         400.00 |
+| Indore |         300.00 |
++--------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT payment_method, SUM(quantity) AS total_quantity FROM sales WHERE status = 'Completed' GROUP BY payment_method ORDER BY total_quantity DESC;
++----------------+----------------+
+| payment_method | total_quantity |
++----------------+----------------+
+| UPI            |             45 |
+| Cash           |             12 |
+| Card           |              8 |
+| Net Banking    |              7 |
++----------------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT category, AVG(discount) AS average_discount FROM sales WHERE quantity > 4 GROUP BY category ORDER BY average_discount DESC;
++-------------+------------------+
+| category    | average_discount |
++-------------+------------------+
+| Grocery     |       500.000000 |
+| Electronics |       500.000000 |
+| Clothing    |       466.666667 |
+| Beauty      |       350.000000 |
+| Books       |       200.000000 |
++-------------+------------------+
+5 rows in set (0.02 sec)
+
+mysql> SELECT city, MAX(price) AS maximum_price FROM sales WHERE status = 'Completed' GROUP BY city ORDER BY maximum_price DESC;
++--------+---------------+
+| city   | maximum_price |
++--------+---------------+
+| Indore |      60000.00 |
+| Pune   |      55000.00 |
+| Delhi  |      45000.00 |
+| Bhopal |      25000.00 |
+| Mumbai |       7000.00 |
++--------+---------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT category, MIN(price) AS minimum_price FROM sales WHERE discount > 300 GROUP BY category ORDER BY minimum_price ASC;
++-------------+---------------+
+| category    | minimum_price |
++-------------+---------------+
+| Beauty      |        800.00 |
+| Grocery     |        900.00 |
+| Clothing    |       1800.00 |
+| Electronics |       3000.00 |
+| Sports      |       3500.00 |
+| Furniture   |       8000.00 |
++-------------+---------------+
+6 rows in set (0.01 sec)
