@@ -1,0 +1,7 @@
+a=input("name")
+b=input("age")
+c=input("phone")
+print("--Bio Data--")
+print(a)
+print(b)
+print(c)

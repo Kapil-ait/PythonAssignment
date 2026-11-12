@@ -1,0 +1,2 @@
+email="patidarkapil627@gmail.com
+a=input("Your email is", email)

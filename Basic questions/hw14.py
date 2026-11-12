@@ -1,0 +1,6 @@
+a=input("-name:")
+print(a)
+b=input("-age:")
+print(b)
+c=input("-city:")
+print(c)
