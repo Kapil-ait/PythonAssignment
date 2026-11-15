@@ -1,0 +1,694 @@
+10/04/2026(Day 2)
+AWS Training
+AWS Availability zones(AZs),
+AWS Edge locations : Aws also has a network of edge locations around the world.
+these locations are part of Amazon cloudfront, which is AWS content delivery network(cdn).
+It is used to reduce latency, improving the speed of content delivery.
+Aws has 200+ edge locations across virous countries, with more added frequently to enhance performance.
+
+AWS Global Network Backbone :
+AWS has its own global network backbone.
+
+Artifact : security services
+
+AWS service categories:
+
+Network and CDN: amazon VPC
+aws direct connect
+elastic load balancing
+
+
+MUST SEE EXAM GUIDE
+----------------------------------------
+AWS IAM :
+AWS Identity and access management(IAM) Is a web service that helps
+
+IAM users and IAM groups
+
+Principle of list privilege : control user access (only need access allowed)
+"Everything is denied by Default"
+
+inline policies: which is directly attached to particular user.
+---------------------------------------
+15-04-2026
+(Day -3)
+
+Elastic compute cloud (EC2) :
+feature :
+1.virtual sever
+2.scalability
+3.cost flexibility
+4.instance types
+5.elasticity
+6.security
+----------------------------------------------------------
+22-04-26
+
+Amazon elastic Block Storage (EBS):
+NAS - Network attached system
+
+
+storage options: 1.EBS(block storage)       storage:1.block level 2.object level
+2.Instance Store
+3.
+
+
+
+
+Amazon elastic file system and amazon
+
+
+
+
+
+LOAD BALANCING :application load balancer (ALB)
+33 195
+
+
+ASG auto scaling
+----------------------------------------------
+23-04-26(Thursday):
+
+
+ASG (auto scaling group)
+Auto scaling : 1.Vertical Scaling
+2. Horizontal Scaling
+
+-> Instances Purchasing Options EC2
+1.on demand
+2.Reserved
+3.Savings plan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------
+24-06-26 Friday
+
+Simple Storage Service(S3):It is a highly scalable , durable and highly available object storage service provided by AWS.
+It is designed to store and retrieve any amount of data, from anywhere on the web.
+It is widely used for storing backups, media files etc.
+
+feature :
+Data retrieval options
+scalability
+versioning
+lifecycle policies
+Logging and Monitoring
+Data Storage Model
+Security
+Storage Classes
+
+S3 BUCKETS:
+Amazon S3 Buckets are containers for storing objects(data files) in AWS S3.In S3, data is organized in buckets, and each buckets can hold an unlimited amount of objects.
+Global Uniqueness
+Region-Specific
+Access Control
+Object Storage
+Lifecycle Management               //bucket making guidelines for naming
+
+S3 Storage Classes:
+Amazon S3 offers various storage classes, each designed for different use cases based on access patterns, cost considerations, durability
+S3 Standards
+S3 Intelligence tiering
+S3 Standards -IA
+S3 one Zone -IA
+S3 Glacier
+S3 Glacier Deep Archive          //Low cost service
+
+S3 Standards : //low retrieval time
+
+
+S3 Standards -IA (Infrequent Access):
+
+
+S3 One Zone -IA:
+
+
+S3 Glacier: // Very long term data but important, but retrieval time is in Hours .
+
+
+S3 Glacier Deep Archive: //Retrieval can range up-to 12 hours or a Day.
+
+S3 Intelligent-Tiering: Low latency, With Automatic Data movement between two access tiers(frequent or
+infrequent).
+
+
+
+Key Drivers of S3 :
+Cost
+Availability
+Retravel time
+Data durability
+
+S3 Bucket Versioning :
+
+
+
+
+
+https://mybucket-sait-24042026.s3.us-east-1.amazonaws.com/images/Qoutes.jpg
+
+what is the maximum size of s3 obj ?
+
+-------------------------------------
+KMS(key management service)
+
+
+30-04-2026(Thursday):
+S3 Encryption And Storage Gateways: Depends on Key         //Encryption in transcript (while data travelling)
+1.Server Side Encryption(SSE):Generally in AWS
+
+SSE-S2
+SSE-KMS
+SSE-C
+2.Client Side Encryption(CSE):    //Generally Not used in AWS
+
+
+AWS Storage Gateway: AWS storage/ servers + On premises storage/ Servers
+It is a hybrid cloud storage service that provides on-premises access to the cloud storage.
+
+Benefits:
+1.Flexible
+2.secure
+3.Cost-Effective
+4.Scalable
+
+Life cycle policies: Object automated transfer to low cost storage system so that our cost managed or decreased.
+
+
+AWS Database Offerings:
+
+Amazon RDS:
+
+features of RDS:
+1.Security
+2.Multiple Database Engines Supported
+3.High Availability & Durability
+4.Performance
+5.Fully Managed
+6.Scalability
+7.Cost-Effectiveness
+
+Read Replica : Read Replica allow you to create one or more copies of your primary RDS instance that are only read.
+these replicas can be used to offload read traffic from the primary instance, improving for Read-heavy applications.
+up-to 15 read replicas, with in AZ, across AZs and regions.
+
+
+
+----------------------------------------------------
+06-05-2026(Wednesday):
+
+
+Amazon DynamoDB : Server less offering or NoSQL
+ Amazon DynamoDB is a fully managed NoSQL database service provided by AWS
+It is designed for high-performance, scalable , and highly available applications.
+DynamoDB is ideal for applications that require low-latency data access at any scale, such as mobile apps, IOT gaming, retail, and more.
+Its a serverless offering by AWS.
+
+DynamoDB Features:
+Performance low latency
+fully managed
+NoSQL database
+Scalability
+DynamoDB streams
+Consistency and availability
+
+Use cases:
+Mobile Application
+Gaming
+IOT
+Retail and E-Commerce
+Serverless Architecture
+
+
+DynamoDB Accelerator DAX:
+-Amazon DynamoDB Accelerator(DAX) is a fully managed, in-memory caching service designed to accelerate the performance of Amazon DynamoDB.
+-DAX provides Microsecond read performance for DynamoDB tables, making it ideal solution for read-heavy applications that require low-latency data access,
+-It helps to significantly reduce the response time for DynamoDB queries by caching frequently accessed in memory.
+
+Use Case:
+Real-Time Analytics
+Session management
+Product catalogs
+Gaming leaderboard
+IoT applications
+
+
+
+Amazon Redshift Overview: It is a warehouse service.
+It is a petabyte-scale data warehouse service in the cloud.
+
+Feature:
+SQL interface and BI tools Integration
+Scalability Security
+Fully managed
+
+Use Cases:
+Business Intelligence
+Data lakes
+ML
+Real-Time Analytics
+Log/Event data analysis
+
+
+More database service in AWS:
+EMR -elastic map reduce
+document DB
+Neptune - graph database
+Timestream
+QLDB
+DMS - database migration service
+
+
+IP addresses in AWS:  CIDR(class less inter-domain routing) blocks next step of IP address.
+
+IP Versions:
+IPv4
+IPv6
+
+Public IP: Elastic public IP
+Auto-Assigning Public IP
+
+Private IP: Used within internal network(virtual private cloud)VPC to enable communication between  resources within the same network.
+
+VPC: -Amazon virtual private cloud is a fundamental service in AWS that allows you to create a logically isolated network environment within the AWS cloud.
+-It provides control over networking resources such as IP addresses range, subnets, routing, and security settings.
+
+VPC feature:
+Routing
+IP addressing
+Gateways
+Security -network access control list(NACLs)
+Subnets
+Network Isolation
+
+
+
+-------------------------------------
+07-05-2026(Thursday):
+
+VPC and components:
+
+Subnets: A subnets in Amazon Virtual Private cloud(VPC) is a segment of the IP address range within a VPC
+1.Public subnet
+2.Private subnet
+
+
+CIDR blocks: -A CIDR block defines the IP address range for a subnet within a VPC.
+-For example, you can allocate a subnet with a CIDR block like 10.0.1.0/24, which allows for up to 256 IP addresses(254 usable).      //2^8 i.e 2^32-24
+-Each subnet must have a unique CIDR block within the VPC's range.
+
+Internet Gateway: -An internet gateway(IGW) in a VPC is a component in AWS that allows communication between instances in your VPC and the internet.
+-It acts as a bridge for network traffic, enabling resources in your VPC to send and receive data from the internet.
+
+NAT Gateways: NAT gateways (AWS Managed) & NAT instances(self managed)allow your instances in your private subnets to access the internet while remaining private.
+
+NACL and Security group: NACL (network access control list)
+
+-------------------------------------------------------
+08-05-2026:(Friday)-
+
+VPC Endpoints:
+connects VPC Components and other AWS services(not for all).  services-generally storage service(S3,DynamoDB)
+It is used for enhancing the security and reduce the latency as well.
+
+Types :
+Interface Endpoints
+Gateway Endpoints
+
+Benefits:
+Private connectivity
+Security
+Compliances
+No public IPs Required
+Reduced latency and Better Performance
+Cost Efficiency
+
+
+VPC Peering: It allows to connect multiple VPCs.
+Network of Networks
+
+
+Shared Responsibility Model
+
+AWS security and compliances services:
+
+AWS security services:
+1.AWS IAM
+2.AWS WAF
+3.AWS Firewall Manager
+4.AWS KMS(key management service)
+4.AWS Shield - (DDOs distributed denied of service)
+
+AWS WAF(Web Application Firewall) and Shield:
+These services work together to safeguard web application and resources , providing both proactive(before attack) and reactive(after attack) security measures.
+-----------------------------------------------------------------
+
+
+09-05-2026(Saturday):
+AWS Shield: It is a Application Security service.
+1.Basic    //free
+2.Advanced    //costly
+
+**KMS(key management system):**It is a data security service.
+Keys management:
+Key Generation
+Key Distribution
+Key Storage
+Key Rotation
+Key Revocation
+
+Advanced Encryption Standards (AES) :256 Bit encryption
+
+Features of KMS:
+centralized key management
+Symmetric and Asymmetric key
+Automated key rotation
+Integration with AWS services
+Key policies and IAM permissions
+Audit and compliances
+--------------------------------------------------------
+
+13-05-2026(Wednesday):
+
+AWS Firewall Manager: AWS Firewall Manager is a security management service designed to help you centrally configure and manage firewall manager across multiple AWS accounts and resources.
+
+Benefits:
+centralized security management
+Automated compliances
+Integration with AWS services
+Cost effective
+cross-account management
+
+AWS Secrete Manager:     //Most popular security Service
+Its a fully managed service that help you securely store, manage, and retrieve sensitive information such as API keys, database credentials, and other secrets.
+
+It simplifies the process of managing credentials for your applications, services, and IT resources by securely storing these secrets and providing controlled access to them.
+
+
+Feature:
+AWS Integration
+Audit and logging
+Secret management
+Automatic rotation
+Secure Access
+
+USE cases:
+Database credentials
+API Key and tokens
+Secure configuration
+
+More AWS Security and Compliances Services:               //CloudTrail
+
+Amazon Guard duty: //Thread detection
+ It is a thread detection service that continuously monitors your AWS accounts and workloads for malicious or unauthorized activity.
+
+Features:
+Thread detection
+Continuous Monitoring
+Real-Time Alerts
+Machine Learning and Anomaly Detection
+Integrated Thread Intelligence
+
+Amazon Macie: //
+It is a fully managed data security and privacy service that uses ML to automatically discover, classify, and protect sensitive data, such as personally identifiable information(PII), in AWS.
+
+Macie automatically discover and classifies sensitive data in amazon S3, identifying data like PII, credit card numbers, social security numbers(SSN), and other sensitive information.
+
+Amazon Inspector Service: //Security assessment
+Amazon Inspector is an automated security assessment service that helps identify vulnerabilities(may be something wrong) and deviations from best practices in your AWS infrastructure.
+
+It performs automated security assessments to improve the security and compliances of your applications and resources.
+
+Feature:
+Customizable Assessments
+Automated scanning
+Security Best Practice
+Comprehensive coverage
+
+AWS Decoupling Services:
+
+Integration and Decoupling:
+AWS provides a variety of services designed to help you integrated and decouple application and service in a scalable, efficient, and flexible way
+
+These services are essential for creating distributed systems and microservices architectures where different part of an application interact in a loose, independent manner.
+
+This architecture enables flexibility, resilience, and improved scalability.
+
+WHY WE NEED ?
+1.Synchronous Communication:
+
+Booking Application-------------------->Dispatch Application
+
+2.Asynchronous Communication:
+
+Booking Application---------->Queue----------->Dispatch Application
+
+SQS(Simple queue service) service: //oldest AWS service
+Is a fully managed reliable, and scalable message queuing service offered by AWS.
+It enables communication between decoupled software components, which is essential for building distributed systems and microservices architecture.
+-SQS allows you to send, store and receive the messages between software components at any scale, without requiring them to be directly connected to each other.
+-can operate independently and asynchronous.
+
+Producer ---->                   <----          Consumers
+
+Producer---->        SQS Queue   <----          Consumers
+
+Producer---->                    <----          Consumers
+     |    Sends message            poll messages
+     |
+software component sends msg
+//min 4 days //max 14 days message validity
+
+Features:
+visibility timeout : prevents message duplication during processing
+Fully managed service
+Dead letter queues: isolates undeliverable message for analysis
+Message Durability: retains msg up to 14 days
+Asynchronous communication
+Reliability: ensures high availability and message durability
+
+two types of queue:
+1.Standard queue     //not best order guarantee
+2.FIFO queue         //provides best order delivery
+
+
+SNS(Simple Notification Service) service:
+It is a pub/sub (Publish/subscribe) message service that allow application services, end-users to communicate with each other via messages.
+SNS facilities real time message delivery to multiple subscribers, supporting various messaging protocols like HTTP, HTTPS, EMAIL, SNS, amazon SQS, and AWS Lambda.
+It is widely used for sending notifications, alerts, and messages to users or other services, and for implementing event-driven architecture.
+
+
+Publisher---------->SNS Topic-------------->Subscriber
+
+Publisher---------->SNS Topic-------------->Subscriber
+
+Publisher---------->SNS Topic-------------->Subscriber
+         sends messages      Receive messages
+18-05-2026(Monday):
+
+Supported protocols(Subscriber):
+HHT/HTTPS: send message to web servers
+email/email-JASON:sens email notifications in both plain text or in JASON format
+SMS(short message service):send text messages directly to mobile devices.
+AWS Lambda: Trigger Lambda functions synchronously.
+ 
+
+Fan-out Pattern: It broadcast and unicast.
+
+
+
+
+
+
+
+
+
+
+Fan Out Pattern:
+
+--------------------------------------------
+19-05-26(Tuesday):
+
+Monitoring services in AWS
+AWS provides several monitoring services that help you track the health, performance, and security of your infrastructure.
+
+**AWS CloudWatch: -**It is a powerful and comprehensive monitoring service that provides real time insights into your AWS resources, application, and services
+-It helps you to tack performance, monitor system health, and automated actions based on matrices and logs.
+-cloud watch plays a central role in managing operational visibility, performance monitoring, and security within your AWS infrastructure.
+
+
+key components:
+CloudWatch matric
+CloudWatch alarms
+CloudWatch logs
+CloudWatch dashboard
+
+CloudWatch matric:
+**-**CloudWatch metrics provide data points for your AWS resources and applications.
+-Metrics are data about various parameters like CPU, utilization, network traffic, and disk I/O.
+
+Metrics management:
+Visualization
+Aggregation
+Collection
+
+Types of metrics:
+1.Custom metrics-User-defined metrics created by pushing application specific data into CloudWatch.
+2.Standard metrics-Default metrices provides by AWS  services like EC2, RDS, and S3.
+3.Detailed metrics-More granular metrics available for certain services, offering data every 1 minute.
+
+
+
+
+CloudWatch Alarms :
+Amazon CloudWatch Alarms help you monitor specific metrics or conditions within your AWS environment.
+You can use CloudWatch Alarms to take automated actions, such as sending notifications or performing corrective actions(e.g. scaling EC2 instance)when your resources or applications exceed or fall below predefined thresholds.
+
+Threshholds and states:
+state of alarms:1.OK
+2.ALARM
+3.INSUFFICIENT_DATA
+
+Alarms action:
+1.Sending notifications
+2.Auto scaling
+3.Stop/Terminate/Reboot instances
+4.Invoke Lambda functions
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
