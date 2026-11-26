@@ -1,0 +1,111 @@
+<!--1.
+You are designing a more detailed travel blog page to provide a rich user experience. The page should include a header, navigation links, multiple destinations with images, headings, descriptions, and interactive elements like "Read More" links and a footer.
+
+Requirements
+Header Section:
+
+Use an <h1> tag for the blog title, e.g., "Global Adventures Blog."
+Add a brief tagline using an <h2> tag, e.g., "Discover the world's most amazing places."
+Navigation Bar:
+
+Create a simple navigation bar at the top using anchor tags to navigate to different sections:
+"Home"
+"Destinations"
+"Contact Us"
+Featured Section:
+
+Add a prominent image (<img> tag) at the top of the page to act as a banner.
+Include a caption under the image using an <h3> tag, describing the featured destination.
+Destination Sections:
+
+Divide the content into four destinations, each with:
+An <h2> heading for the name of the destination.
+A paragraph describing the destination.
+A small image of the destination with a descriptive alt tag.
+A "Read More" link (<a> tag) to an external site for detailed information.
+Highlight Section:
+
+Include an <h3> tag for a special destination highlight.
+Add a larger image for this destination and describe what makes it unique.
+Back to Top Link:
+
+Add a "Back to Top" anchor link at the bottom of the page.
+Footer Section:
+
+Add a footer with:
+Contact information (e.g., email or social media links using anchor tags).
+Copyright information.
+A small logo image
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Adventures Blog</title>
+</head>
+<body id="top">
+    <h1 style="text-align: center;">"Global Adventures Blog."</h1>
+    <h2 style="text-align: center;">"Discover the world's most amazing places."</h2>
+    
+    <a href="#top">Home</a> |
+    <a href="#destinations">Destinations</a> |
+    <a href="#contactus">Contact us</a>
+
+    <hr>
+    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200"
+             alt="Beautiful view of Paris"
+             width="100%" height="400">
+        <h3>Featured Destination: Beautiful Paris, France</h3>
+        <p>Explore the city of love, famous for the Eiffel Tower, art, fashion, and delicious food.</p>
+</hr>
+<section id="destinations">
+  <h2>1. Paris, France</h2>
+        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=500"
+             alt="Paris city streets" width="300">
+        <p>Paris is one of the most beautiful cities in the world. It is famous for the Eiffel Tower, museums, cafes, and romantic atmosphere.</p>
+        <a href="https://en.parisinfo.com/" target="_blank">Read More</a>
+
+        <h2>2. Bali, Indonesia</h2>
+        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500"
+             alt="Beautiful tropical landscape of Bali" width="300">
+        <p>Bali is a tropical paradise known for its green rice terraces, beautiful beaches, temples, and peaceful surroundings.</p>
+        <a href="https://www.indonesia.travel/" target="_blank">Read More</a>
+
+        <h2>3. Switzerland</h2>
+        <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=500"
+             alt="Snow-covered Swiss mountains" width="300">
+        <p>Switzerland is famous for its snow-covered mountains, beautiful lakes, scenic train journeys, and charming villages.</p>
+        <a href="https://www.myswitzerland.com/" target="_blank">Read More</a>
+
+        <h2>4. Kyoto, Japan</h2>
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=500"
+             alt="Traditional Japanese architecture in Kyoto" width="300">
+        <p>Kyoto is known for its ancient temples, traditional gardens, Japanese culture, and beautiful cherry blossoms.</p>
+        <a href="https://kyoto.travel/en/" target="_blank">Read More</a>
+    </section>
+
+
+   <section>
+        <h3>Special Highlight: Switzerland</h3>
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900"
+             alt="Beautiful mountain scenery" width="600">
+        <p>Switzerland offers breathtaking mountain views, peaceful lakes, and unforgettable outdoor adventures. It is an ideal destination for nature lovers and adventure seekers.</p>
+
+
+    <a href="#top">Back to top</a>
+   </section><br>
+<section id="contactus">
+    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=100"
+             alt="Travel blog logo" width="50"><br>
+
+      <p>Email:<a href="mailto:travel@gmail.com">travel@gmail.com</a></p>
+      <p>Follow us:
+      <a href="https://www.instagram.com/earth/">INstagram</a>
+</p>
+</section>
+
+
+  </section>
+</body>
+</html>
